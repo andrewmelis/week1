@@ -11,10 +11,16 @@ require "test/unit"
 SCORING_RULES = { 1 => 1, 2 => 2, 3 => 4, 4 => 7, 5 => 10, 6 => 15 }
 
 # CHANGE THIS CODE TO MAKE THE TESTS PASS
-def calculate_points_from_moves
+def calculate_points_from_moves(moves)
+    points = 0
+    moves.each do |i|
+	points += SCORING_RULES[i] 
+    end
+    return points
 end
 
 def calculate_points_for_player(player, data)
+   return calculate_points_from_moves(data[player]) 
 end
 
 # ----------------------------------------------------------
